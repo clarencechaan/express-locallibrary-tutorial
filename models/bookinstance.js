@@ -21,11 +21,15 @@ BookInstanceSchema.virtual("url").get(function () {
 });
 
 BookInstanceSchema.virtual("due_back_formatted").get(function () {
-  return DateTime.fromJSDate(this.due_back).toLocaleString(DateTime.DATE_MED);
+  return this.due_back
+    ? DateTime.fromJSDate(this.due_back).toLocaleString(DateTime.DATE_MED)
+    : "";
 });
 
 BookInstanceSchema.virtual("due_back_YYYY_MM_DD").get(function () {
-  return DateTime.fromJSDate(this.due_back).toFormat("yyyy-MM-dd");
+  return this.due_back
+    ? DateTime.fromJSDate(this.due_back).toFormat("yyyy-MM-dd")
+    : "";
 });
 
 //Export model

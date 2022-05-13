@@ -46,19 +46,19 @@ block content
       )
         option(
           value="Maintenance",
-          selected=bookinstance.status == "Maintenance" ? "selected" : false
+          selected=bookinstance && bookinstance.status == "Maintenance" ? "selected" : false
         ) Maintenance
         option(
           value="Available",
-          selected=bookinstance.status == "Available" ? "selected" : false
+          selected=bookinstance && bookinstance.status == "Available" ? "selected" : false
         ) Available
         option(
           value="Loaned",
-          selected=bookinstance.status == "Loaned" ? "selected" : false
+          selected=bookinstance && bookinstance.status == "Loaned" ? "selected" : false
         ) Loaned
         option(
           value="Reserved",
-          selected=bookinstance.status == "Reserved" ? "selected" : false
+          selected=bookinstance && bookinstance.status == "Reserved" ? "selected" : false
         ) Reserved
 
     button.btn.btn-primary(type="submit") Submit
