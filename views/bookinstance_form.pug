@@ -16,7 +16,7 @@ block content
         each book in book_list
           option(
             value=book._id,
-            selected=bookinstance.book._id == book._id.toString() ? "selected" : false
+            selected=selected_book == book._id.toString() ? "selected" : false
           ) #{ book.title }
 
     .form-group
