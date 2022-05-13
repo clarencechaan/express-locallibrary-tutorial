@@ -255,7 +255,7 @@ exports.book_delete_post = function (req, res, next) {
         });
         return;
       } else {
-        // Book has no book instances. Delete object and redirect to the list of authors.
+        // Book has no book instances. Delete object and redirect to the list of books.
         Book.findByIdAndRemove(req.body.bookid, function deleteBook(err) {
           if (err) {
             return next(err);
