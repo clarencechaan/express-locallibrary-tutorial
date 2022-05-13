@@ -16,7 +16,7 @@ block content
         each book in book_list
           option(
             value=book._id,
-            selected=selected_book == book._id.toString() ? "selected" : false
+            selected=bookinstance.book._id == book._id.toString() ? "selected" : false
           ) #{ book.title }
 
     .form-group
@@ -33,7 +33,7 @@ block content
       input#due_back.form-control(
         type="date",
         name="due_back",
-        value=undefined === bookinstance ? "" : bookinstance.due_back
+        value=undefined === bookinstance ? "" : bookinstance.due_back_YYYY_MM_DD
       )
 
     .form-group
@@ -44,10 +44,22 @@ block content
         name="status",
         required="true"
       )
-        option(value="Maintenance") Maintenance
-        option(value="Available") Available
-        option(value="Loaned") Loaned
-        option(value="Reserved") Reserved
+        option(
+          value="Maintenance",
+          selected=bookinstance.status == "Maintenance" ? "selected" : false
+        ) Maintenance
+        option(
+          value="Available",
+          selected=bookinstance.status == "Available" ? "selected" : false
+        ) Available
+        option(
+          value="Loaned",
+          selected=bookinstance.status == "Loaned" ? "selected" : false
+        ) Loaned
+        option(
+          value="Reserved",
+          selected=bookinstance.status == "Reserved" ? "selected" : false
+        ) Reserved
 
     button.btn.btn-primary(type="submit") Submit
 
